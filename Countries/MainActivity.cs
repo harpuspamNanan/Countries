@@ -12,17 +12,34 @@ namespace Countries
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        TextView capital;
+        Spinner countrySpinner;
+        ImageView countryImages;
+
+        string[] capitalNamesInArray = { "New Delhi", "Brasilia", "Ottawa", "Paris", "Suva", "Rome", "Washington, D.C." };
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
+            capital = (TextView)FindViewById(Resource.Id.showCapitalTv);
+            countrySpinner = (Spinner)FindViewById(Resource.Id.countrySpinner);
+            countryImages = (ImageView)FindViewById(Resource.Id.showImages);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
+            ArrayAdapter countryNamesAdapter = ArrayAdapter.CreateFromResource(this, Resource.Array.capitals_array, Android.Resource.Layout.SimpleSpinnerItem);
+            countrySpinner.Adapter = countryNamesAdapter;
+
+            countrySpinner.ItemSelected += delegate
+            {
+                long i = countrySpinner.SelectedItemId;
+                capital.Text = capitalNamesInArray[i].ToString();
+                Toast.MakeText(this, "The Selected Country is : " + countrySpinner.SelectedItem, ToastLength.Long).Show();
+                string imgName = "country" + (i+1);
+                int imgId = this.Resources.GetIdentifier(imgName, "mipmap", this.PackageName);
+                countryImages.SetImageResource(imgId);
+
+            };
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

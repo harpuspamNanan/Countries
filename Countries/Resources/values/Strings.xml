@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Countries</string>
     <string name="action_settings">Settings</string>
+  
+    <string-array name="capitals_array">
+      <item>India</item>
+      <item>Brazil</item>
+      <item>Canada</item>
+      <item>France</item>
+      <item>Fiji</item>
+      <item>Italy</item>
+      <item>United States</item>
+    </string-array>
+  
 </resources>

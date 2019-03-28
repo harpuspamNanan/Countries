@@ -4,29 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+	<TableLayout
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/tableLayout1">
+		<TableRow
+			android:id="@+id/tableRow1">
+			<TextView
+				p4:placeholder="true"
+				android:text="Country : "
+				android:minWidth="30px"
+				android:minHeight="30px"
+				xmlns:p4="http://xamarin.com/mono/android/designer"
+				android:id="@+id/countryTv" />
+			<Spinner
+				android:layout_column="1"
+				android:id="@+id/countrySpinner" />
+		</TableRow>
+		<TableRow
+			android:id="@+id/tableRow2">
+			<TextView
+				p4:placeholder="true"
+				android:minWidth="30px"
+				android:text="Capital : "
+				android:minHeight="30px"
+				xmlns:p4="http://xamarin.com/mono/android/designer"
+				android:id="@+id/capitalTv" />
+			<TextView
+				p4:placeholder="true"
+				android:minWidth="30px"
+				android:text=""
+				android:minHeight="30px"
+				xmlns:p4="http://xamarin.com/mono/android/designer"
+				android:id="@+id/showCapitalTv" />
+		<!--	<TextView
+				p4:placeholder="true"
+				android:minWidth="30px"
+				android:minHeight="30px"
+				xmlns:p4="http://xamarin.com/mono/android/designer"
+				android:id="@+id/textView6" />
+		-->
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+		</TableRow>
+		<TableRow
+			android:id="@+id/tableRow3">
+			
+		<!--	<Button
+				android:text="Show"
+				android:layout_column="1"
+				android:id="@+id/showBtn" />
+		-->
+		</TableRow>
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+		<ImageView
+				android:src="@android:drawable/ic_menu_gallery"
+				android:id="@+id/showImages" />
+	</TableLayout>
 
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+  
 
 </android.support.design.widget.CoordinatorLayout>
